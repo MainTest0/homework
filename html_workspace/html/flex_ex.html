@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            /* 부모요소 수직정렬 */
+            align-items: center;
+            /* 부모요소 수평정렬 */
+            justify-content: center;
+        }
+
+        .flex-container{
+            display: flex;
+            border-radius: 30px;
+            background-color: aqua;
+            width: 300px;
+            height: 300px;
+            border : 2px solid black;
+            /* 자식요소 수평 정렬 */
+            justify-content: center;
+            /* 자식요소 수직 정렬 */
+            align-items: center;
+
+        }
+        .flex-item{
+            display: flex;
+            background-color: burlywood;
+            border-radius: 30px;
+            height: 150px;
+            width: 150px;
+            color:brown;
+            font-size: 15px;
+            font-weight: bold;
+
+            /* 글씨 수직 정렬 */
+            align-items: center;
+            /* 글씨 수평 정렬 */
+            justify-content: center;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">item child</div>
+    </div>
+</body>
+</html>

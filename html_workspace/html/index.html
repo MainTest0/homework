@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 내부 스타일 시트 */
+        *{
+            margin : 0;
+            padding : 0;
+            box-sizing : border-box;
+        }
+
+        body{
+            /* 모니터에 height 주기 */
+            height : 100vh;
+            background-color: aqua;
+        }
+        /* 
+        플렉스 속성을 이용해서 box 옆에 box를 사용할 수 있고
+        원하는 대로 배치나 정렬이 가능하다.
+        
+        자식의 정렬이나 배치는 항상 부모에서 생각한다.
+        바로 아래 자식까지만 영향을 미친다.
+        */
+        .flex-container{
+            display : flex;
+            /* 자식요소 수평정렬 ( item ) */
+            justify-content: flex-start;
+            justify-items: end;
+            /* 수직 정렬 */
+            align-items: center;
+        }
+        /* 가로세로 100 만들기 */
+        .flex-item{
+            width: 100px;
+            height: 100px;
+            background-color: bisque;
+            border: 1px solid black;
+        }
+
+
+    </style>
+    
+</head>
+<body>
+     <div class = "flex-container">
+        <div class = "flex-item">item1</div>
+     </div>
+</body>
+</html>

@@ -14,8 +14,7 @@ public class ClientTest {
 	// 통신을 하기 위해 소켓이 필요 + 주소(IP필요) + 포트번호
 	Socket socket;
 
-//	final String IP = "localhost";
-	final String IP = "192.168.0.75";
+	final String IP = "localhost";
 	final int PORT = 10000;
 
 	BufferedReader keyboardReader;

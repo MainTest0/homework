@@ -1,0 +1,15 @@
+package ch03;
+
+import java.io.FileOutputStream;
+
+public class FileOutputStream2 {
+
+	public static void main(String[] args) {
+		
+		FileOutputStream fos = null;
+		
+		fos = new FileOutputStream("output2.txt");
+		
+	}// end of main
+
+}// end of class

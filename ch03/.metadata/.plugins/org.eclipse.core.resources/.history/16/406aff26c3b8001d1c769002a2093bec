@@ -1,0 +1,47 @@
+package ch06;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class MainTest2 {
+
+	public static void main(String[] args) {
+
+		FileOutputStream fos = null;
+		try {
+			fos = new FileOutputStream("data.txt");
+			DataOutputStream dos = new DataOutputStream(fos);
+			
+			dos.writeChar('A');
+			dos.writeInt(10);
+			dos.writeFloat(3.14F);
+			dos.writeUTF("Test UTF-8");
+			
+			dos.flush();
+			
+			FileInputStream fis = new FileInputStream("data.txt");
+			DataInputStream dis = new DataInputStream(fis);
+			
+			char a = dis.readChar();
+			int b = dis.readInt();
+			float c = dis.readFloat();
+			String d = dis.readUTF();
+			
+			System.out.println(a);
+			System.out.println(b);
+			System.out.println(c);
+			System.out.println(d);
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	} //end of main
+
+} // end of class

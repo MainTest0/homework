@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.FileSystem"/>
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.jdt.internal.ui.fatjarpackager.JarPackageWizard"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.jdt.ui.Java"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="FileSystemImportWizard">
+		<item key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<item key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID" value="false"/>
+		<item key="WizardFileSystemResourceImportPage1.STORE_CREATE_VIRTUAL_FOLDERS_ID" value="false"/>
+		<item key="WizardFileSystemResourceImportPage1.STORE_CREATE_LINKS_IN_WORKSPACE_ID" value="true"/>
+		<item key="WizardFileSystemResourceImportPage1.STORE_PATH_VARIABLE_SELECTED_ID" value="true"/>
+		<item key="WizardFileSystemResourceImportPage1.STORE_PATH_VARIABLE_NAME_ID" value="ECLIPSE_HOME"/>
+		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\java_workspace\chapter01\src\ch03\PacmanProject\pacmanPlayer\src\ch17"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.internal.dialogs.WorkbenchEditorsDialog">
+		<item key="allPersp" value="false"/>
+		<item key="sort" value="0"/>
+		<list key="bounds">
+			<item value="561"/>
+			<item value="152"/>
+			<item value="790"/>
+			<item value="553"/>
+		</list>
+		<list key="columns">
+			<item value="252"/>
+			<item value="506"/>
+		</list>
+	</section>
+</section>

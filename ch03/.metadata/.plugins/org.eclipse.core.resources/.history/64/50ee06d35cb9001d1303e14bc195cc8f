@@ -1,0 +1,26 @@
+package ch01;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+public class BufferedWriterExample2EX {
+
+	public static void main(String[] args) {
+
+		// 글자를 만들어 두고 파일에다가 출력 하기
+		// 출력 스트림 필요, 파일, 문자 단위
+		// 기반 + 보조
+
+		try {
+			new FileInputStream("output1EX.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		// 습관적으로 물을 내려주는 것이 좋다
+		// 버퍼는 입시적으로 공간을 만들어 뒀다가 차곡차곡 쌓아진 녀석들을
+		// 내려줘야 됨 flush()
+
+	}// end of main
+
+}// end of class

@@ -1,0 +1,11 @@
+package ch01;
+
+public class WhileMainTest1 {
+
+	public static void main(String[] args) {
+
+		
+
+	}	// end of main
+
+}	// end of class

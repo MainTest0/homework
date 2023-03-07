@@ -1,0 +1,29 @@
+package ch05;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class MainTest4 {
+
+	public static void main(String[] args) {
+
+		long  milliSecond = 0;
+		
+		//1단계 1바이트씩 데이터를 읽어들이는 기반 스트림
+		FileInputStream fis = null;
+		FileOutputStream fos = null;
+		
+		try {
+			fis = new FileInputStream("Bubble.zip");
+			fos = new FileOutputStream("BubbleCopy.zip");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+	}// end of main
+
+}// end of class

@@ -1,0 +1,45 @@
+package ch02;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class ServerTest {
+
+// 서버 소켓 필요
+
+	// 클라이언트로 연결받는 소켓
+	ServerSocket serverSocket;
+	// 실제 통신을 담당할 소켓 필요
+	Socket socket;
+
+	public ServerTest() {
+
+	}
+
+	private void initData() {
+		try {
+			// 서버 소켓 생성
+			serverSocket = new ServerSocket(10000);
+			// 클라이언트 접속 대기
+			// 들어올 때까지 대기 중 -> 클라이언트가 들어오면 -> 소켓 반환
+			System.out.println("클라이언트 접속 대기");
+			socket = serverSocket.accept();
+			System.out.println("클라이언트 연결 완료");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	try(
+
+	){
+		
+	}catch(
+	Exception e)
+	{
+		e.printStackTrace();
+	}
+
+}

@@ -1,0 +1,17 @@
+package ch01;
+
+import java.net.ServerSocket;
+
+// 소켓 통신을 구현
+// 1. 서버축과 클라이언트 축은 통신을 통해 데이터를 주고 받는다.
+// 서버측 만들 때 서버 소켓을 준비 해야한다......
+public class ServerFile {
+
+	ServerSocket serverSocket;
+	
+	public ServerFile() {
+		
+	}
+	
+	
+}// end of class

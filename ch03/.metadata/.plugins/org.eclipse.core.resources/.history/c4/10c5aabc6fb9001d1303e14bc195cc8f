@@ -1,0 +1,11 @@
+package ch05;
+
+public class ServerTest2EX {
+
+	
+
+	public static void main(String[] args) {
+		new ServerTest2EX();
+	}// end of main
+
+}// end of class

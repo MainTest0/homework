@@ -1,0 +1,12 @@
+package ch02;
+
+import java.net.ServerSocket;
+
+public class ServerTest {
+
+// 서버 소켓 필요
+	
+	ServerSocket serverSocket = null;
+
+
+}

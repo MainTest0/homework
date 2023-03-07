@@ -1,0 +1,20 @@
+package ch06;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+public class MainTest2 {
+
+	public static void main(String[] args) {
+
+		FileOutputStream fos = null;
+		try {
+			fos = new FileOutputStream("myText.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	} //end of main
+
+} // end of class

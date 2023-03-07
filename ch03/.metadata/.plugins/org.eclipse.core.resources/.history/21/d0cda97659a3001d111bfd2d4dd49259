@@ -1,0 +1,21 @@
+package ch01;
+
+public class WhileMainTest1 {
+
+	// 메인 작업자
+	public static void main(String[] args) {
+
+		// 1부터 10까지 연산하는 코드
+		int num = 1;
+		int sum = 0;
+
+		while (num <= 10) {
+			System.out.printf("현재값 : " + num);
+			num++;
+			sum+=num;
+			System.out.println(" 현재값 : " + sum);
+		}
+
+	} // end of main
+
+} // end of class

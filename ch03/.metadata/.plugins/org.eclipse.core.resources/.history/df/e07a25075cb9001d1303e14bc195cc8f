@@ -1,0 +1,21 @@
+package ch01;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+
+public class BufferedReaderExample2EX {
+
+	public static void main(String[] args) {
+
+		// 기반 스트림 + 보조 스트림
+		// 키보드에서 각 입력 받는 것 복습
+		
+		
+		
+		BufferedReader reader = new BufferedReader(new FileInputStream(System.in));
+
+		
+
+	}// end of main
+
+}// end of class

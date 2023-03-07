@@ -1,0 +1,17 @@
+package ch05;
+
+import java.io.BufferedReader;
+import java.net.Socket;
+
+public class ClientTest2EX {
+
+	Socket socket;
+	
+	BufferedReader socketReader;
+	BufferedReader 
+
+	public static void main(String[] args) {
+		new ClientTest2EX();
+	}// end of main
+
+} // end of class

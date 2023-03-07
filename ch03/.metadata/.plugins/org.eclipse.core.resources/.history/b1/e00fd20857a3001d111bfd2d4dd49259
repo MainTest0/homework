@@ -1,0 +1,29 @@
+package ch01;
+
+public class ForMainTest2 {
+
+	public static void main(String[] args) {
+
+		for (int k = 1; k <= 5; k++) {
+			
+			for (int i = 7; i >= k; i--) {
+				System.out.printf(" ");
+			} // end of i 띄어쓰기
+			
+			for (int j = 0; j < k; j++) {
+				System.out.printf("*");
+				System.out.printf("*");
+			} // end of j 별
+			
+			
+			System.out.println();
+		} // end of k 엔터
+		
+		
+		
+	}
+}
+
+//     *     5번
+//   ***   3번
+// ***** 1번

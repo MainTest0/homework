@@ -8,7 +8,6 @@ INDEX VERSION 1.131+C:\java_workspace\chapter01\src\ch03\.metadata\.plugins\org.
 3209452961.index
 2293177875.index
 86096696.index
-890634320.index
 3369570450.index
 3256769183.index
 2328269416.index

@@ -19,7 +19,8 @@ public class DBTest {
 	private static final String USERNAME = "root";
 	private static final String PASSWROLD = "1234"; // 본인 pw작성
 	// 경로
-	private static final String URL = "jdbc:mysql://localhost:3306/shopdb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8";
+	private static final String URL =
+			"jdbc:mysql://localhost:3306/shopdb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8";
 	// DB 접근 기술 필요한 클래스들이 있다.
 	static Connection connect; // DB 커넥션 연결 객체
 	// 2번째 준비물

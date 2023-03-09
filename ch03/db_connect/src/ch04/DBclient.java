@@ -1,4 +1,4 @@
-package ch02;
+package ch04;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +12,7 @@ public class DBclient {
 	// 포트번호 따로 관리
 	private static final int DB_PORT = 3306;
 	// 사용할 데이터 베이스
-	private static String DB_NAME = "employees";
+	private static String DB_NAME = "shopdb";
 	// 문자열 어떤거를 쓸지
 	private static final String DB_CHARSET = "UTF-8";
 	// 계정 정보와 패스워드 넣기

@@ -1,7 +1,7 @@
 package ch04;
 
 public class BuyDTO {
-	
+
 	private String userName;
 	private String prodName;
 	private int price;
@@ -29,7 +29,5 @@ public class BuyDTO {
 	public int getAmount() {
 		return amount;
 	}
-	
-	
-	
+
 }

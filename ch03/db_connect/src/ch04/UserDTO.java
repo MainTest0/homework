@@ -9,7 +9,7 @@ public class UserDTO {
 	int birthYear;
 	String addr;
 	String mobile;
-	
+
 	public UserDTO(String userName, int birthYear, String addr, String mobile) {
 		this.userName = userName;
 		this.birthYear = birthYear;
@@ -32,7 +32,5 @@ public class UserDTO {
 	public String getMobile() {
 		return mobile;
 	}
-	
-	
-	
+
 }

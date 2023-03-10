@@ -67,8 +67,7 @@ public class UserDAO implements IUserDAO {
 	@Override
 	public int insert(UserDTO dto) {
 
-		String sqlFormat = "INSERT INTO " 
-				+ "                        userTBL(userName, birthYear, addr, mobile) "
+		String sqlFormat = "INSERT INTO " + "                        userTBL(userName, birthYear, addr, mobile) "
 				+ "                        VALUES('%s', %d, '%s', '%s') ";
 		// 테스트한 데이터베이스에서 값 들고오기
 		// 포매팅 해야되는 애들 티모, 2000, 대구...
@@ -99,19 +98,15 @@ public class UserDAO implements IUserDAO {
 	@Override
 	public int update(UserDTO dto, String targetUserName) {
 
-		String sqlFormat = "UPDATE userTBL " 
-				+ "	SET birthYear = %d, " 
-				+ "			addr = '%s', "
+		String sqlFormat = "UPDATE userTBL " + "	SET birthYear = %d, " + "			addr = '%s', "
 				+ "       		mobile = '%s' " + "WHERE userName = '%s' ";
 
-		String sql = String.format(sqlFormat, dto.getBirthYear(), 
-				dto.getAddr(), dto.getMobile(), targetUserName);
+		String sql = String.format(sqlFormat, dto.getBirthYear(), dto.getAddr(), dto.getMobile(), targetUserName);
 
 		int resultRow = 0;
 
 		// 우리가 쓰면 자동으로 닫아주는 것이 autoClosed
-		try (Connection conn = dbClient.getConnection(); 
-				Statement stmt = conn.createStatement();) {
+		try (Connection conn = dbClient.getConnection(); Statement stmt = conn.createStatement();) {
 			// body안에 넣어주자
 			resultRow = stmt.executeUpdate(sql);
 		} catch (Exception e) {
@@ -124,10 +119,9 @@ public class UserDAO implements IUserDAO {
 	@Override
 	public boolean delete(String username) {
 		boolean isOk = true;
-		String sqlFormat = "DELETE FROM userTBL "
-				+ "WHERE username = '%s' ";
+		String sqlFormat = "DELETE FROM userTBL " + "WHERE username = '%s' ";
 		String sql = String.format(sqlFormat, username);
-		
+
 		Connection conn = dbClient.getConnection();
 		Statement stmt = null;
 		try {
@@ -148,7 +142,7 @@ public class UserDAO implements IUserDAO {
 			}
 		}
 		return isOk;
-		
+
 	}
 
 }// end of class

@@ -10,15 +10,16 @@ public class MainBuy {
 //		int rowCount = buyDAO.insert(new BuyDTO("티모", "냉장고", 150000, 1));
 //		System.out.println("rowCount : " + rowCount);
 
-//		BuyDTO dto = new BuyDTO("이승기", "운동화", 200, 1);
+//		BuyDTO dto = new BuyDTO("티모", "버섯", 200, 1);
 //		
-//		int updateRowCount = buyDAO.update(dto, dto.getUserName(),"나이키");
+//		int updateRowCount = buyDAO.update(dto, dto.getUserName(),"냉장고");
 //		System.out.println(updateRowCount);
 	
-		
-		int row = buyDAO.delete("노트북");
+//		 -------DELETE
+		int row = buyDAO.delete("버섯");
 		System.out.println(row);
 		
+		// --------SELECT
 //		ArrayList<BuyDTO> list = buyDAO.select();
 //		
 //		

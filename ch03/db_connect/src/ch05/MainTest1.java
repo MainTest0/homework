@@ -1,0 +1,47 @@
+package ch05;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class MainTest1 {
+
+	public static void main(String[] args) {
+		EmployeeDAO dao = new EmployeeDAO();
+//		dao.showTitleEmpInfo("Staff");
+		// for문 돌리고싶음 잠시 담아둘 arraylist필요
+//		ArrayList<EmployeeDTO> tempList = dao.showTitleEmpInfo("Staff");
+
+//		Scanner sc = new Scanner(System.in);
+//		System.out.print("찾고싶은 사람 성 입력 :");
+//		String FName = sc.next();
+//		System.out.print("찾고싶은 사람 이름 입력 :");
+//		String LName = sc.next();
+
+//		ArrayList<EmployeeDTO> tempList = dao.showTitleEmpInfo("Staff");
+		ArrayList<EmployeeDTO> tempList = dao.showTitleEmpInfo("Georgi","Facello");
+
+//		for (int i = 0; i < tempList.size(); i++) {
+//			String empNo = tempList.get(i).getEmpNo();
+//			String firstName = tempList.get(i).getFirstName();
+//			String lastName = tempList.get(i).getLastName();
+//			String title = tempList.get(i).getTitle();
+//
+//			System.out.println("emp_no: " + empNo);
+//			System.out.println("firstName: " + firstName);
+//			System.out.println("lastName: " + lastName);
+//			System.out.println("title: " + title);
+//		}
+		
+		for (int i = 0; i < tempList.size(); i++) {
+			String firstName = tempList.get(i).getFirstName();
+			String lastName = tempList.get(i).getLastName();
+			int count= tempList.get(i).getCount();
+
+			System.out.println("firstName: " + firstName);
+			System.out.println("lastName: " + lastName);
+			System.out.println("count: " + count);
+		}
+
+	}
+
+}

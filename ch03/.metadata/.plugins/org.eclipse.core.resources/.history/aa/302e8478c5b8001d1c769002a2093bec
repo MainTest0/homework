@@ -1,8 +1,0 @@
-package ch01;
-
-// 소켓 통신을 구현
-// 1. 서버축과 클라이언트 축은 통신을 통해 데이터를 주고 받는다.
-
-public class ServerFile {
-
-}// end of class

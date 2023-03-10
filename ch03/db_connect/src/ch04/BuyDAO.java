@@ -6,38 +6,38 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class BuyDAO implements IBuyDAO{
-	
+public class BuyDAO implements IBuyDAO {
+
 	private DBclient dbClient;
 
 	public BuyDAO() {
 		dbClient = new DBclient();
 	}
-	
+
 	public ArrayList<BuyDTO> select() {
 		ArrayList<BuyDTO> list = new ArrayList<>();
-		
+
 		Connection conn = dbClient.getConnection();
 		Statement stmt = null;
 		ResultSet rs = null;
-		
+
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM buyTBL ");
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				String userName = rs.getString("userName");
 				String prodName = rs.getString("prodName");
 				int price = rs.getInt("price");
-				int amount= rs.getInt("amount");
-				
+				int amount = rs.getInt("amount");
+
 				BuyDTO dao = new BuyDTO(userName, prodName, price, amount);
 				list.add(dao);
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				rs.close();
 				stmt.close();
@@ -45,22 +45,20 @@ public class BuyDAO implements IBuyDAO{
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			
+
 		}
 		return list;
-		
+
 	}
 
 	@Override
 	public int insert(BuyDTO dto) {
-		
-		String sqlFormat = "INSERT INTO "
-				+ "buyTBL(userName, prodName, price, amount) "
+
+		String sqlFormat = "INSERT INTO " + "buyTBL(userName, prodName, price, amount) "
 				+ "VALUES('%s', '%s', %d, %d) ";
-		
-		String sql = String.format(sqlFormat, dto.getUserName(), 
-				dto.getProdName(), dto.getPrice(), dto.getAmount());
-		
+
+		String sql = String.format(sqlFormat, dto.getUserName(), dto.getProdName(), dto.getPrice(), dto.getAmount());
+
 		int resultRowCount = 0;
 		Connection conn = dbClient.getConnection();
 		Statement stmt = null;
@@ -76,27 +74,22 @@ public class BuyDAO implements IBuyDAO{
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			
+
 		}
-		
+
 		return resultRowCount;
 	}
 
 	@Override
-	public int update(BuyDTO dto, String targetBuyName, 
-			String targetBuyProd) {
+	public int update(BuyDTO dto, String targetBuyName, String targetBuyProd) {
 
-		String sqlFormat = "UPDATE buyTBL "
-				+ "	SET prodName = '%s', "
-				+ "        price = %d, "
-				+ "        amount = %d "
-				+ "WHERE userName = '%s' "
-				+ "	AND prodName = '%s' ";
-		String sql = String.format(sqlFormat, dto.getProdName(), 
-				dto.getPrice(), dto.getAmount(), targetBuyName, targetBuyProd);
-		
+		String sqlFormat = "UPDATE buyTBL " + "	SET prodName = '%s', " + "        price = %d, " + "        amount = %d "
+				+ "WHERE userName = '%s' " + "	AND prodName = '%s' ";
+		String sql = String.format(sqlFormat, dto.getProdName(), dto.getPrice(), dto.getAmount(), targetBuyName,
+				targetBuyProd);
+
 		int resultRow = 0;
-		
+
 		Connection conn = dbClient.getConnection();
 		Statement stmt = null;
 		try {
@@ -112,28 +105,27 @@ public class BuyDAO implements IBuyDAO{
 				e.printStackTrace();
 			}
 		}
-		
+
 		return resultRow;
 	}
 
 	@Override
 	public int delete(String targetBuyProd) {
 
-		String sqlFormat = "DELETE FROM buyTBL "
-				+ "WHERE prodName = '%s'";
-		
+		String sqlFormat = "DELETE FROM buyTBL " + "WHERE prodName = '%s'";
+
 		String sql = String.format(sqlFormat, targetBuyProd);
-		
+
 		int row = 0;
 		Connection conn = dbClient.getConnection();
 		Statement stmt = null;
 		try {
 			stmt = conn.createStatement();
 			row = stmt.executeUpdate(sql);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				conn.close();
 				stmt.close();
@@ -142,7 +134,7 @@ public class BuyDAO implements IBuyDAO{
 			}
 		}
 		return row;
-		
+
 	}
-	
+
 } // end of class

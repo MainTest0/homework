@@ -1,0 +1,51 @@
+package Utils;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class DBClient {
+	
+	private static final String HOST = "localhost";
+	private static final String PORT = "3306";
+	private static final String DATABASE_NAME = "myblog";
+	private static final String CHARSET = "UTF-8";
+	private static final String USERNAME = "bloguser";
+	private static final String PASSWORD = "1q2w3e4r5t";
+	
+	private Connection conn;
+	
+	public Connection getConnection() {
+		if(conn == null) {
+			String urlFormat = "jdbc:mysql://%s:%s/%s?serverTimezone=Asia/Seoul&characterEncoding=%s";
+			String url = String.format(urlFormat, HOST, PORT, DATABASE_NAME, CHARSET);
+
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				conn = DriverManager.getConnection(url, USERNAME,PASSWORD);
+				System.out.println("연결성공");
+			} catch (Exception e) {
+				System.out.println("DBClient에서 오류 발생");
+				e.printStackTrace();
+			}
+		}
+		
+		return conn;
+	}
+	
+	public void CloseConnection() {
+		if(conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println("DBClient CloseConnection에서 오류 발생");
+				e.printStackTrace();
+			}
+		}
+		conn = null;
+	}
+	
+
+}

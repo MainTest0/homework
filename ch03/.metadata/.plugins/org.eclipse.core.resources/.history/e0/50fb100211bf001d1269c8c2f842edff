@@ -1,0 +1,54 @@
+package test;
+
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class SelectFrame extends JPanel {
+
+	private Component CText;
+	private JButton btn;
+
+	public SelectFrame() {
+		initData();
+		setInitLayout();
+		addEventListner();
+	}
+
+	private void initData() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(1000, 640);
+		CText = getContentPane();
+		btn = new JButton("조회");
+		CText = new Container();
+
+	}
+
+	private void setInitLayout() {
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setVisible(true);
+
+		CText.add(new JTextField(50));
+		add(btn);
+	}
+
+	private void addEventListner() {
+		btn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				btn = (JButton) e.getSource();
+			}
+		});
+	}
+
+	public static void main(String[] args) {
+		new SelectFrame();
+	}
+
+}// end of class

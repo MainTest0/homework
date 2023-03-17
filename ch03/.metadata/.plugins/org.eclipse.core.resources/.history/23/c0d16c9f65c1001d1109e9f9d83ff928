@@ -1,0 +1,53 @@
+package DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import DTO.UserDTO;
+import Utils.DBClient;
+
+public class UserDAO implements IUserDAO{
+	
+	private DBClient dbc;
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	public UserDAO() {
+		dbc = new DBClient();
+		conn = dbc.getConnection();
+	}
+	
+	@Override
+	public int saveUser(UserDTO user) {
+
+		String query = " INSERT INTO user "
+				+ " (username, password, email, address, "
+				+ "	userRole, createDate)\r\n"
+				+ " VALUES(%s, %s, %s, %s, "
+				+ " 'USER', now()) ";
+		int row = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, user.getUserName);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return row;
+	}
+	
+
+	@Override
+	public UserDTO selectUserNameAndPassword(String username, String password) {
+
+		
+		
+		return null;
+	}
+
+
+}// end of class

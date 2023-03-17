@@ -1,0 +1,17 @@
+package com.tenco.myblog;
+
+import com.tenco.myblog.controller.UserController;
+import com.tenco.myblog.dto.UserDTO;
+
+public class MainTest2 {
+	public static void main(String[] args) {
+		
+		UserDTO dto = new UserDTO("티모", "5678", "b@naver.com", "부산");
+		// 출발은 객체가 생성해서 던질 때 함
+		// 서비스를 만들어놓아서 응답받을 수 있다.
+		// 이 말이뭐냐면 유저컨트롤러 기능으로 로그인 요청가능함
+		UserController userController = new UserController();
+		UserDTO loginUser = userController.requestSignIn("티모", "5678");
+
+	}// end of main
+}// end of class

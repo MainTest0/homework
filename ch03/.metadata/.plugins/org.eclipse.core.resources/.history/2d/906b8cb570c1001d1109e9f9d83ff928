@@ -1,0 +1,44 @@
+package com.tenco.myblog.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.tenco.myblog.utils.DBHelper;
+
+public class BlogDAO implements IBlogDAO{
+	
+	private DBHelper dbHelper;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	
+	@Override
+	public void save() {
+		
+		// 글저장기능 만들기
+		String query = " INSERT INTO board(title, content, userId) "
+				+ "VALUES "
+				+ "	(?, ?, ?) ";
+		
+	}
+
+	@Override
+	public void select() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}// end of class

@@ -1,0 +1,7 @@
+package com.tenco.myblog;
+
+public class MainTest2 {
+	public static void main(String[] args) {
+
+	}// end of main
+}// end of class

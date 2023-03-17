@@ -1,0 +1,27 @@
+package com.tenco.myblog.service;
+
+import com.tenco.myblog.dao.BlogDAO;
+
+public class BlogService {
+	// dao를 부르는 녀석
+
+	BlogDAO blogdao;
+	
+	public BlogService() {
+		blogdao = new BlogDAO();
+	}
+	
+	// 블로그 저장 기능 로직 구현
+	public int saveBoard(String title, String content, int userId) {
+		// 방어적코드
+		// 타이틀이 공백이라면, 또는 사이즈가 2미만이면
+		int resultRowCount = 0;
+		if (title.equals("") || title.length() < 2) {
+			// 메서드의 흐름을 종료 처리
+			return resultRowCount;
+		}
+		blogdao.save(title, content, userId);
+
+	}
+
+}// end of class

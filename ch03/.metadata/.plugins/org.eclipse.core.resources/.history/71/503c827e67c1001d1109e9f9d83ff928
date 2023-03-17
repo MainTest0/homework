@@ -1,0 +1,13 @@
+package com.tenco.studyBlog;
+
+import DTO.UserDTO;
+
+public class MainTest {
+
+	public static void main(String[] args) {
+
+		UserDTO dto = new UserDTO("차무식", "1357", "musick@naver.com", "부산");
+		
+	}
+
+}

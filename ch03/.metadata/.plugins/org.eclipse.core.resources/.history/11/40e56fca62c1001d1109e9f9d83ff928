@@ -1,0 +1,7 @@
+package DAO;
+
+public interface IUserDAO {
+	
+	UserDTO selectUserNameAndPassword(String username, String password);
+
+}

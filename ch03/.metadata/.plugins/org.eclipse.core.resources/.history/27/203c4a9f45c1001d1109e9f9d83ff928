@@ -1,0 +1,8 @@
+package com.tenco.myblog.dao;
+
+public class UserDAO {
+
+	// 유저와 관련된 것만
+	// 블로그와 관련된 것은 blogDAO 이런식으로 나눌거임
+	
+}	// end of class

@@ -1,0 +1,25 @@
+package DAO;
+
+import DTO.UserDTO;
+
+public class UserDAO implements IUserDAO{
+	
+	@Override
+	public int saveUser(String user) {
+
+		
+		
+		return 0;
+	}
+	
+
+	@Override
+	public UserDTO selectUserNameAndPassword(String username, String password) {
+
+		
+		
+		return null;
+	}
+
+
+}// end of class

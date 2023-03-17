@@ -1,0 +1,19 @@
+package com.tenco.myblog;
+
+import com.tenco.myblog.controller.UserController;
+import com.tenco.myblog.dto.UserDTO;
+
+public class MainTest3 {
+
+	public static void main(String[] args) {
+		// 우리 게시글을 누구나 볼 수있지만 수정,삭제는 글쓴이만 할 수 있음
+		// 사용자 여부 확인해서 id값을 긁어올거임
+		UserController userController = new UserController();
+		UserDTO loginUser = userController.requestSignIn("티모", "5678");
+		
+		System.out.println(loginUser);
+		
+		
+	}// end of main
+
+}// end of class

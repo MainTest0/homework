@@ -1,0 +1,25 @@
+package com.tenco.myblog;
+
+import com.tenco.myblog.controller.BlogController;
+import com.tenco.myblog.controller.UserController;
+import com.tenco.myblog.dto.UserDTO;
+
+public class MainTest3 {
+
+	public static void main(String[] args) {
+		// 우리 게시글을 누구나 볼 수있지만 수정,삭제는 글쓴이만 할 수 있음
+		// 사용자 여부 확인해서 id값을 긁어올거임
+		UserController userController = new UserController();
+		BlogController blogController = new BlogController();
+		UserDTO loginUser = userController.requestSignIn("티모", "5678");
+		System.out.println(loginUser);
+		
+		// 메인에서 블로그컨트롤러에 넘겨야 할 값??
+		// WHERE 절 구성과 같음
+		// 해당 게시글에 PK 값을 알아야 한다.
+		// 사용자에 대한 정보도 필요하다(userId)
+		blogController.requestBoardDelete(3, 2);
+		
+	}// end of main
+
+}// end of class

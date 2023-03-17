@@ -1,0 +1,14 @@
+package com.tenco.myblog.controller;
+
+import com.tenco.myblog.dto.UserDTO;
+
+// main -> UserController로 요청
+public class UserController {
+
+	// 외부에서 요청한 일을 수행하고 결과를 리턴한다.
+	// 사용자 정보를 받아 회원가입 처리를 한다.
+	public void requestSignUp(UserDTO user) {
+		
+	}
+	
+}// end of class

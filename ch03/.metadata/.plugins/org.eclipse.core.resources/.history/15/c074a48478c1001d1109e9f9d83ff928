@@ -1,0 +1,11 @@
+package com.tenco.myblog.dto;
+
+public class BlogDTO {
+	
+	private int id;
+	private String title;
+	private String content;
+	private int readCount;
+	private int userId;
+
+}

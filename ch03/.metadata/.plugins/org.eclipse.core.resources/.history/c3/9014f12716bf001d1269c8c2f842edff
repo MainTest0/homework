@@ -1,0 +1,279 @@
+package test;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+public class test extends JFrame {
+	// BorderLayout 사용
+	JPanel panWest, panSouth, p1, p2, p3;
+	JTextField txtIdx, txtName, txtAddress;
+	JButton btnInsert, btnDelete, btnSelect;
+
+	JTable table;
+
+	Connection con;
+
+	Statement stmtSelect, stmtScroll;
+	PreparedStatement pstmtInsert, pstmtDelete, pstmtScroll;
+	// rsScroll : rs.next()로 내려갔을 때 다시 올라가서 몇 행인지 알려주기 위해 사용
+	ResultSet rs, rsScroll;
+	ResultSetMetaData rsmd; // 테이블정보(메타데이터)
+
+	public test() {
+		  panWest = new JPanel(new GridLayout(1, 0));
+		  
+		  p1 = new JPanel(new FlowLayout());
+		  p1.add(new JLabel("조회"));
+		  p1.add(txtIdx = new JTextField(20));
+		  panWest.add(p1);
+		  
+		  p2 = new JPanel(new FlowLayout());
+		  p2.add(new JLabel("이 름"));
+		  p2.add(txtName = new JTextField(12));
+		  panWest.add(p2);
+		  
+		  p3 = new JPanel(new FlowLayout());
+		  p3.add(new JLabel("주 소"));
+		  p3.add(txtAddress = new JTextField(12));
+		  panWest.add(p3);
+		  
+		  add(panWest, BorderLayout.WEST);
+		  
+		  panSouth = new JPanel();
+		  panSouth.add(btnSelect = new JButton("조회"));
+		  panSouth.add(btnInsert = new JButton("추가"));
+		  panSouth.add(btnDelete = new JButton("삭제"));
+		  
+		  add(panSouth, BorderLayout.SOUTH);
+		  
+		  // 버튼과 리스너 연결
+		  btnSelect.addActionListener(lisner);
+		  btnInsert.addActionListener(lisner);
+		  btnDelete.addActionListener(lisner);
+		  
+		  setBounds(100, 100, 700, 300);
+		  setVisible(true);
+		  
+		  // 윈도우 창 모두 닫기
+		  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		  // 윈도우 창에서 새 창 열리는 것만 닫기
+		  setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		 }
+
+	// 4단계 - 내부 익명 클래스
+	ActionListener lisner = new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object obj = e.getSource(); // 버튼 받아옴
+
+			if (obj == btnSelect) {
+//		    System.out.println("Select!");
+				select();
+			} else if (obj == btnInsert) {
+//		    System.out.println("Insert!");
+				insert();
+			} else if (obj == btnDelete) {
+//		    System.out.println("Delete!");
+				delete();
+			}
+		}
+	};
+
+	private void connectDB() {
+		try {
+			// 1단계 - 드라이버 로드
+			Class.forName("com.mysql.jdbc.Driver");
+			// 2단계 - Connection 객체 생성
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/employees", "root", "1234");
+			System.out.println("드라이버 로드, DB 접속 성공!");
+		} catch (ClassNotFoundException e) {
+			System.out.println("드라이버 로드 실패!");
+		} catch (SQLException e) {
+			System.out.println("DB 접속 실패!");
+			;
+		}
+	}
+
+	private void closeDB() {
+		if (rs != null)
+			try {
+				rs.close();
+			} catch (Exception e) {
+			}
+		;
+		if (stmtSelect != null)
+			try {
+				stmtSelect.close();
+			} catch (Exception e) {
+			}
+		;
+		if (stmtScroll != null)
+			try {
+				stmtScroll.close();
+			} catch (Exception e) {
+			}
+		;
+		if (pstmtInsert != null)
+			try {
+				pstmtInsert.close();
+			} catch (Exception e) {
+			}
+		;
+		if (pstmtDelete != null)
+			try {
+				pstmtDelete.close();
+			} catch (Exception e) {
+			}
+		;
+		if (pstmtScroll != null)
+			try {
+				pstmtScroll.close();
+			} catch (Exception e) {
+			}
+		;
+		if (con != null)
+			try {
+				con.close();
+			} catch (Exception e) {
+			}
+		;
+	}
+
+	private void select() {
+		int rows, cols;
+		String[] colName;
+		// String[] colName={"번호","이름","주소"};
+		Object[][] data;
+		String sql = "select idx as '번호',name as '이름',address as '주소' from customer;";
+
+		connectDB();
+		try {
+			stmtSelect = con.createStatement();
+			stmtScroll = con.createStatement();
+			rs = stmtSelect.executeQuery(sql);
+			rsmd = rs.getMetaData(); // 테이블 정보를 저장
+
+			// rs는 한번 전진하면 되돌아오기 어렵기 때문에
+			// rsScroll 변수가 대신해서 마지막 레코드까지 전진
+			rsScroll = stmtScroll.executeQuery(sql);
+			// 마지막 레코드까지 전진시킴
+			// 레코드(행) 갯수 파악 가능
+			rsScroll.last(); // while 안쓰고도 한방에 끝까지 내려감
+
+			rows = rsScroll.getRow(); // 레코드(행) 수
+			cols = rsmd.getColumnCount(); // 필드(열) 수
+
+			// 제목 행 받아오기
+			colName = new String[cols];
+			for (int i = 0; i < cols; i++) {
+				colName[i] = rsmd.getColumnLabel(i + 1);
+			}
+
+			// 내용 받아오기
+			data = new Object[rows][cols];
+
+			int rowCount = 0;
+			while (rs.next()) {
+				for (int colCount = 0; colCount < cols; colCount++) {
+					data[rowCount][colCount] = rs.getObject(colCount + 1);
+				}
+				rowCount++;
+			}
+
+			table = new JTable(data, colName);
+
+			add(new JScrollPane(table));
+			setVisible(true);
+
+		} catch (SQLException e) {
+			System.out.println("SQL 구문 에러");
+		} finally {
+			closeDB();
+		}
+	}
+
+	private void insert() {
+		String strIdx;
+		String strName;
+		String strAddress;
+		String sql = "INSERT INTO customer " + "VALUES (?,?,?);";
+
+		connectDB();
+
+		strIdx = txtIdx.getText();
+		strName = txtName.getText();
+		strAddress = txtAddress.getText();
+
+		// (||:버티컬 bar)
+		if (strIdx.length() < 1 || strName.length() < 1) {
+			JOptionPane.showMessageDialog(null, "번호와 이름은 필수 입력!");
+			return;
+		}
+
+		try {
+			// 3단계 - PreparedStatement 객체 생성
+			pstmtInsert = con.prepareStatement(sql);
+			pstmtInsert.setInt(1, Integer.parseInt(strIdx));
+			pstmtInsert.setString(2, strName);
+			pstmtInsert.setString(3, strAddress);
+			// 4단계 - SQL 문장 실행 후 결과 처리
+			pstmtInsert.executeUpdate();
+
+			JOptionPane.showMessageDialog(null, "회원 추가 완료!");
+
+			txtIdx.setText("");
+			txtName.setText("");
+			txtAddress.setText("");
+
+		} catch (SQLException e) {
+			System.out.println("INSERT 구문 에러!");
+		} finally {
+			closeDB();
+		}
+	}
+
+	private void delete() {
+		String strIdx;
+
+		connectDB();
+
+		strIdx = JOptionPane.showInputDialog(null, "삭제할 회원 번호를 입력하세요!");
+		String sql = "delete from customer where idx=?";
+
+		try {
+			pstmtDelete = con.prepareStatement(sql);
+			pstmtDelete.setInt(1, Integer.parseInt(strIdx));
+			pstmtDelete.executeUpdate();
+
+			JOptionPane.showMessageDialog(null, "회원 삭제 완료!");
+		} catch (Exception e) {
+			System.out.println("Delete 구문 에러!");
+		} finally {
+			closeDB();
+		}
+	}
+
+	public static void main(String[] args) {
+		new test();
+	}
+}

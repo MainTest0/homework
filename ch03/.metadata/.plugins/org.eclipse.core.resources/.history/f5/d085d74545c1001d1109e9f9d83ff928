@@ -1,0 +1,7 @@
+package com.tenco.myblog.controller;
+
+public class UserController {
+
+	// jar 연결
+	
+}// end of class

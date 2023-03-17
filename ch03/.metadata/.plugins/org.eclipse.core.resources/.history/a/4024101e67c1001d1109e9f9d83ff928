@@ -1,0 +1,20 @@
+package Controller;
+
+import DTO.UserDTO;
+import Service.UserService;
+
+public class UserController {
+	
+	private UserService userService;
+	
+	public UserController() {
+		userService = new UserService();
+	}
+	
+	public String requestSignUp(UserDTO user, String host) {
+		
+		
+		return host;
+	}
+
+}

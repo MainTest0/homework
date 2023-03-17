@@ -1,0 +1,9 @@
+package DAO;
+
+import DTO.UserDTO;
+
+public interface IUserDAO {
+	
+	UserDTO selectUserNameAndPassword(String username, String password);
+
+}

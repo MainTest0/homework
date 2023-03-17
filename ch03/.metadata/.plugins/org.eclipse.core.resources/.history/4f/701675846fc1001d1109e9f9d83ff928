@@ -1,0 +1,10 @@
+package com.tenco.myblog.service;
+
+public class BlogService {
+	
+	// 블로그 저장 기능 로직 구현
+	public void saveBoard(String title, String content, int userId) {
+		
+	}
+
+}// end of class

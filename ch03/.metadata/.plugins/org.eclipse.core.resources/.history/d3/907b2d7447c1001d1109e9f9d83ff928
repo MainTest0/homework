@@ -1,0 +1,17 @@
+package com.tenco.myblog.dao;
+// 유저와 관련된 것만
+// 블로그와 관련된 것은 blogDAO 이런식으로 나눌거임
+/*
+ * 이 클래스의 기능
+ * User와 관련된 DB 서버 연결 로직 처리
+ */
+
+import com.tenco.myblog.utils.DBHelper;
+
+public class UserDAO {
+
+// DBHelper 가져오기
+	private DBHelper dbHelper;
+	
+	
+}	// end of class

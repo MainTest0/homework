@@ -1,0 +1,33 @@
+package com.tenco.myblog.dao;
+
+public class BlogDAO implements IBlogDAO{
+	
+
+	@Override
+	public void save() {
+		
+		// 글저장기능 만들기
+		String query = "  ";
+		
+	}
+
+	@Override
+	public void select() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}// end of class

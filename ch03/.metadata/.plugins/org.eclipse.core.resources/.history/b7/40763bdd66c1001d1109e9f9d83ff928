@@ -1,0 +1,13 @@
+package Controller;
+
+import Service.UserService;
+
+public class UserController {
+	
+	private UserService userService;
+	
+	public UserController() {
+		userService = new UserService();
+	}
+
+}

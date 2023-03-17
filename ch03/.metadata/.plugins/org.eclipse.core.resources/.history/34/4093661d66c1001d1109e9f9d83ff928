@@ -1,0 +1,13 @@
+package Service;
+
+import DAO.UserDAO;
+
+public class UserService {
+	
+	private UserDAO dao;
+	
+	public UserService() {
+		dao = new UserDAO();
+	}
+
+}

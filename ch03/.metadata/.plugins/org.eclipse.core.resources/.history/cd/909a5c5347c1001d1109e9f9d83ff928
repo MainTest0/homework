@@ -1,0 +1,9 @@
+package com.tenco.myblog.dao;
+// 유저와 관련된 것만
+// 블로그와 관련된 것은 blogDAO 이런식으로 나눌거임
+
+public class UserDAO {
+
+	// dao에서 필요한 준비물이 dto에서도 쓸거같으니까 util패키지 생성
+	
+}	// end of class

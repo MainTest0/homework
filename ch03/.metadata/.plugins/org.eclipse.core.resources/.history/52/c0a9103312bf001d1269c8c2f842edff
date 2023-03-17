@@ -1,0 +1,76 @@
+package test;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+import ch05.DBHelper;
+
+public class SelectFrame extends JFrame implements IEmployeeDAO{
+	private DBHelper dbHelper;
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	private Container CText;
+	private JButton btn;
+
+
+	public SelectFrame() {
+		initData();
+		setInitLayout();
+		addEventListner();
+	}
+
+	private void initData() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(1000, 640);
+		
+		CText = getContentPane();
+		btn = new JButton("조회");
+		CText = new JTextField(50);
+
+	}
+
+	private void setInitLayout() {
+		setLayout(new FlowLayout());
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setVisible(true);
+
+		add(CText);
+		add(btn);
+	}
+	
+	
+
+	private void addEventListner() {
+		btn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				btn = (JButton) e.getSource();
+			}
+		});
+	}
+
+	@Override
+	public ArrayList<EmployeeDTO> showTitleEmpInfo(String title) {
+
+		dbHelper = DBHelper.getInstance();
+		conn = dbHelper.getConnection();
+		
+		
+		return null;
+	}
+
+	
+	
+}// end of class

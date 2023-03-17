@@ -1,0 +1,11 @@
+package com.tenco.myblog.dao;
+
+public interface IUserDAO {
+
+	// 가독성을 높이기 위해서 DTO에서 만들기
+	int saveUser();
+	//사용자 찾기
+	void selectUserByUserUsernameAndPassword();
+	
+
+}

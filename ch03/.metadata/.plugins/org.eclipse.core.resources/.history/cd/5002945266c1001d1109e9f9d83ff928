@@ -1,0 +1,28 @@
+package Service;
+
+import DAO.UserDAO;
+import DTO.UserDTO;
+
+public class UserService {
+	
+	private UserDAO dao;
+	
+	public UserService() {
+		dao = new UserDAO();
+	}
+	
+	public String signUp(UserDTO user) {
+		String msg = "";
+		
+		if(user.getUserName().equals("")) {
+			msg="사용자 이름을 입력해주세요.";
+			System.out.println(msg);
+			return msg;
+		}
+		user.setUserRole("USER");
+		int row = dao.saveUser(user);
+		
+		return null;
+	}
+
+}

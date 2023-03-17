@@ -1,0 +1,10 @@
+package DAO;
+
+import DTO.UserDTO;
+
+public interface IUserDAO {
+	int saveUser(String user);
+	
+	UserDTO selectUserNameAndPassword(String username, String password);
+
+}

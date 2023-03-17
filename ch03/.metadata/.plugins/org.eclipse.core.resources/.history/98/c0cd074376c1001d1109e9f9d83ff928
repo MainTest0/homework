@@ -1,0 +1,27 @@
+package com.tenco.myblog.controller;
+
+import com.tenco.myblog.service.BlogService;
+
+public class BlogController {
+
+	// 넘겨받은 값만 체크하고
+	// 진짜일은 블로그 서비스한테 넘길거임
+	private BlogService blogService;
+	
+	public BlogController() {
+		// NPE 방지
+		blogService = new BlogService();
+	}
+	
+	// 블로그 글쓰기 기능
+	public int reqSaveBoard(String title, String content, int userId) {
+		// 방어적 코드
+		// 테이블에 0번은 없음
+		if(userId != 0) {
+			return blogService.saveBoard(title, content, userId);
+		}
+		return 0;
+	}
+	
+	
+}// end of class

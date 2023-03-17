@@ -1,0 +1,11 @@
+package com.tenco.myblog.controller;
+
+public class BlogController {
+
+	// 블로그 글쓰기 기능
+	public void reqSaveBoard(String title, String content, int userId) {
+		
+	}
+	
+	
+}// end of class
